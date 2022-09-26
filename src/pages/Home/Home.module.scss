@@ -1,0 +1,5 @@
+@import "../../utils/styles/commons.scss";
+
+.container {
+  @extend .parentWrapper;
+}
