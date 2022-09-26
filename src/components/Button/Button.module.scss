@@ -1,1 +1,32 @@
 @import "../../utils/styles/commons.scss";
+
+.button {
+  background-color: rgba(246, 246, 246, 1);
+  border: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: rgba(0, 0, 0, 1);
+  padding: 1.1rem 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 3px;
+  .rightIcon {
+    margin-left: 1rem;
+    transform: scale(0.9);
+  }
+  .leftIcon {
+    margin-right: 1rem;
+    transform: scale(0.9);
+  }
+}
+
+.iconButton {
+  @extend .flexRow;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  border-radius: 50%;
+}

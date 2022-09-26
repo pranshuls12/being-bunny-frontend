@@ -1,7 +1,11 @@
-import React from "react";
+import styles from "./NotFound.module.scss";
 
 const index = () => {
-  return <div>Not Found</div>;
+  return (
+    <div className={styles.container}>
+      <h1>Not Found</h1>
+    </div>
+  );
 };
 
 export default index;

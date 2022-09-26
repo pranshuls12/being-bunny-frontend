@@ -3,3 +3,34 @@
 .container {
   @extend .parentWrapper;
 }
+$breakpoint-lg: 1600px; //Large
+$breakpoint-rg: 1360px; //Regular
+$breakpoint-sm: 400px; //Small
+
+html {
+  font-size: 15px;
+  @media screen and (max-width: $breakpoint-lg) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: $breakpoint-rg) {
+    font-size: 13px;
+  }
+  @media screen and (max-width: $breakpoint-sm) {
+    font-size: 12px;
+  }
+}
+h1 {
+  font-size: 3.13rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+}
+h2 {
+  font-size: 2.5rem;
+  letter-spacing: 0.05rem;
+  font-weight: 600;
+}
+h3 {
+  font-size: 1.55rem;
+  letter-spacing: 0.24rem;
+  font-weight: 600;
+}

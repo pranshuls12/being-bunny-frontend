@@ -25,26 +25,34 @@ const index = ({
   return (
     <button
       onClick={onClick}
-      className={clsx(styles.button, getVariantStyles(), ...className)}
+      className={clsx(
+        styles.button,
+        getVariantStyles(),
+        className ? [...className] : ""
+      )}
       type={type || "button"}
     >
-      {rightIcon && <span>{rightIcon}</span>}
+      {leftIcon && (
+        <img className={styles.leftIcon} src={leftIcon} alt="Left Icon" />
+      )}
       {children}
-      {leftIcon && <span>{leftIcon}</span>}
+      {rightIcon && (
+        <img className={styles.rightIcon} src={rightIcon} alt="Right Icon" />
+      )}
     </button>
   );
 };
 
 export default index;
 
-export const IconButton = ({ type, children, className, onClick }) => {
+export const IconButton = ({ type, icon, className, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={clsx(styles.iconButton, ...className)}
+      className={clsx(styles.iconButton, className ? [...className] : "")}
       type="button"
     >
-      {children}
+      <img className={styles.icon} src={icon} alt="Icon" />
     </button>
   );
 };

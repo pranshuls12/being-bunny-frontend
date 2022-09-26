@@ -1,1 +1,9 @@
 @import "../../utils/styles/commons.scss";
+
+.container {
+  @extend .flexRow;
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  justify-content: center;
+}

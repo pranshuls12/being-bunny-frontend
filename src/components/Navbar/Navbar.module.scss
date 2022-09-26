@@ -1,4 +1,48 @@
 @import "../../utils/styles/commons.scss";
 
 .container {
+  @extend .parentWrapper;
+  position: fixed;
+  top: 2rem;
+  .maxWidthContainer {
+    width: 100%;
+    @extend .flexRow;
+    background: rgba(201, 201, 201, 0.55);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 0.5rem 1.5rem;
+  }
+  .logo {
+    @extend .flexRow;
+    img {
+      width: 70px;
+      margin-right: 1rem;
+    }
+  }
+  .navLinks {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+  }
+  .navLink {
+    margin: 0 3rem;
+    font-size: 1.55rem;
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    &.active {
+      color: var(--clr-primary);
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: calc(50% - 4px);
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: var(--clr-primary);
+      }
+    }
+  }
 }
