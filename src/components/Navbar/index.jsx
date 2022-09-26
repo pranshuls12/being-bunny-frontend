@@ -8,10 +8,10 @@ const navLinks = [
     name: "OG",
     to: "/og",
   },
-  {
-    name: "Home",
-    to: "/",
-  },
+  // {
+  //   name: "Home",
+  //   to: "/",
+  // },
   {
     name: "Team",
     to: "/team",
