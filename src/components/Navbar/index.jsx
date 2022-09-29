@@ -2,6 +2,12 @@ import styles from "./Navbar.module.scss";
 import { Logo } from "../";
 import { NavLink } from "react-router-dom";
 import clsx from "clsx";
+import { icons } from "../../assets";
+import { IconButton } from "../";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+const { instagram, twitter, linkedin } = icons;
 
 const navLinks = [
   {
@@ -22,34 +28,78 @@ const navLinks = [
   },
 ];
 
-const index = () => {
+const socials = [
+  {
+    name: "Instagram",
+    icon: instagram,
+    href: "https://www.youtube.com/",
+  },
+  // {
+  //   name: "Linkedin",
+  //   icon: linkedin,
+  //   href: "https://www.youtube.com/",
+  // },
+  {
+    name: "Twitter",
+    icon: twitter,
+    href: "https://www.youtube.com/",
+  },
+];
+
+const Navbar = ({ isFirstTime }) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log({ isFirstTime });
+  });
   return (
     <nav className={styles.container}>
-      <div className={styles.maxWidthContainer}>
-        <div className={styles.logo}>
+      <div
+        style={
+          isFirstTime ? { backdropFilter: "none", background: "unset" } : {}
+        }
+        className={styles.maxWidthContainer}
+      >
+        <div
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate("/")}
+          className={styles.logo}
+        >
           <Logo />
           <h3>BEING BUNNY</h3>
         </div>
-        <div className={styles.navLinks}>
-          {navLinks.map((link) => (
-            <NavLink
-              exact
-              className={(isActive) => {
-                console.log(isActive);
-                return clsx(
-                  styles.navLink,
-                  isActive.isActive ? styles.active : styles.inactive
-                );
-              }}
-              to={link.to}
-            >
-              {link.name}
-            </NavLink>
-          ))}
-        </div>
+        {isFirstTime || (
+          <div className={styles.navLinks}>
+            {navLinks.map((link) => (
+              <NavLink
+                end
+                className={(isActive) => {
+                  console.log(isActive);
+                  return clsx(
+                    styles.navLink,
+                    isActive.isActive ? styles.active : styles.inactive
+                  );
+                }}
+                to={link.to}
+              >
+                {link.name}
+              </NavLink>
+            ))}
+          </div>
+        )}
+        {isFirstTime || (
+          <div className={styles.social}>
+            {socials.map((social) => (
+              <IconButton
+                icon={social?.icon}
+                href={social?.href}
+                target="blank"
+              />
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
 };
 
-export default index;
+export default Navbar;

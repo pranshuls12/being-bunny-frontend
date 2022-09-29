@@ -1,17 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home, OG, NotFound } from "./pages";
+import { Home, OG, NotFound, Team, Minting } from "./pages";
 import styles from "./App.module.scss";
+import { GlobalContextProvider } from "./utils/context";
 
 function App() {
   return (
     <div className={styles.container}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/og" element={<OG />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
+      <GlobalContextProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/og" element={<OG />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/minting" element={<Minting />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </GlobalContextProvider>
     </div>
   );
 }

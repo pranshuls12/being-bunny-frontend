@@ -1,6 +1,7 @@
 @import "../../utils/styles/commons.scss";
 
 .container {
+  z-index: 10;
   @extend .parentWrapper;
   position: fixed;
   top: 2rem;
@@ -28,10 +29,12 @@
   .navLink {
     margin: 0 3rem;
     font-size: 1.55rem;
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: none;
     position: relative;
     &.active {
+      font-weight: 600;
+
       color: var(--clr-primary);
       &::after {
         content: "";
@@ -43,6 +46,15 @@
         border-radius: 50%;
         background-color: var(--clr-primary);
       }
+    }
+  }
+  .social {
+    @extend .flexRow;
+    margin: auto;
+    button {
+      margin: 0 1rem;
+      font-size: 1.55rem;
+      font-weight: 700;
     }
   }
 }

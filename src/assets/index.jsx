@@ -1,14 +1,25 @@
 // images
 import logo from "./images/logo.png";
+import heroBackground from "./images/heroBackground.png";
+import og1 from "./images/og1.png";
+import og2 from "./images/og2.png";
+import og3 from "./images/og3.png";
+import og4 from "./images/og4.png";
 
 // icons
 import instagram from "./icons/instagram.svg";
 import twitter from "./icons/twitter.svg";
 import linkedin from "./icons/linkedin.svg";
 import redirect from "./icons/redirect.svg";
+import mouse from "./icons/mouse.svg";
 
 export const images = {
   logo,
+  heroBackground,
+  og1,
+  og2,
+  og3,
+  og4,
 };
 
 export const icons = {
@@ -16,4 +27,5 @@ export const icons = {
   twitter,
   linkedin,
   redirect,
+  mouse,
 };
