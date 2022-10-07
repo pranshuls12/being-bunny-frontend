@@ -1,0 +1,13 @@
+.slick-list .slick-slide {
+  max-height: 30vh !important;
+}
+body {
+  overscroll-behavior: none !important;
+  height: 100vh;
+}
+.slick-arrow {
+  display: none !important;
+}
+.og1 {
+  position: relative;
+}

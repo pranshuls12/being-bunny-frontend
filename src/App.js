@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home, OG, NotFound, Team, Minting } from "./pages";
 import styles from "./App.module.scss";
 import { GlobalContextProvider } from "./utils/context";
+import "./App.css";
 
 function App() {
   return (

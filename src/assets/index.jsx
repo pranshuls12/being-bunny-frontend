@@ -12,6 +12,7 @@ import twitter from "./icons/twitter.svg";
 import linkedin from "./icons/linkedin.svg";
 import redirect from "./icons/redirect.svg";
 import mouse from "./icons/mouse.svg";
+import discord from "./icons/discord.svg";
 
 export const images = {
   logo,
@@ -25,6 +26,7 @@ export const images = {
 export const icons = {
   instagram,
   twitter,
+  discord,
   linkedin,
   redirect,
   mouse,

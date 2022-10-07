@@ -7,7 +7,7 @@ import { IconButton } from "../";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const { instagram, twitter, linkedin } = icons;
+const { instagram, twitter, discord } = icons;
 
 const navLinks = [
   {
@@ -29,16 +29,16 @@ const navLinks = [
 ];
 
 const socials = [
-  {
-    name: "Instagram",
-    icon: instagram,
-    href: "https://www.youtube.com/",
-  },
   // {
-  //   name: "Linkedin",
-  //   icon: linkedin,
+  //   name: "Instagram",
+  //   icon: instagram,
   //   href: "https://www.youtube.com/",
   // },
+  {
+    name: "Discord",
+    icon: discord,
+    href: "https://www.youtube.com/",
+  },
   {
     name: "Twitter",
     icon: twitter,

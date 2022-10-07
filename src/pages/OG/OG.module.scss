@@ -24,3 +24,10 @@
     }
   }
 }
+.slider {
+  max-height: 30vh;
+  background-color: red;
+  > div {
+    max-height: 30vh;
+  }
+}
