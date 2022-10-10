@@ -1,6 +1,9 @@
 .slick-list .slick-slide {
   max-height: 30vh !important;
 }
+.slick-slider {
+  z-index: 2;
+}
 body {
   overscroll-behavior: none !important;
   height: 100vh;

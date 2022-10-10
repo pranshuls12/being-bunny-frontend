@@ -1,176 +1,73 @@
 @import "../../utils/styles/commons.scss";
 
 .container {
-  @extend .parentWrapper;
-
-  min-height: 100vh;
-  background-position: top;
-  // background: url("../../assets/images/heroBackground.png") no-repeat center;
-  background-repeat: no-repeat;
-  position: relative;
-  i img {
-    width: 100%;
-  }
-  .backgroundImage {
-    // position: fixed;
-  }
-  .maxWidthContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  max-width: 100vw;
+  overflow: hidden;
+  .horizontalSlider {
     @extend .flexRow;
-    justify-content: center;
-    z-index: 3;
-    .firstTimeHeading {
-      cursor: pointer;
-
-      font-weight: 400;
-      span {
-        font-weight: 600;
-      }
-      i {
-        font-size: 48px;
-      }
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        text-shadow: 0px 0px 4px var(--clr-primary);
-      }
-    }
-  }
-
-  // &.firstTime::after {
-  //   display: block;
-  //   background: rgba(0, 0, 0, 0.5);
-  //   content: "";
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  // }
-  &::after {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: pink;
+    max-width: 400vw;
+    width: 400vw;
+    min-width: 400vw;
+    transition: transform 0.7s ease-in-out;
+    transform: translate(150vw, 0);
   }
 }
-
 .backgroundImage {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  // height: 100%;
-  img {
-    width: 100%;
-  }
-  &.firstTime::after {
-    display: block;
-    background: rgba(0, 0, 0, 0.5);
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.og {
-  .og {
-    width: 100%;
-    min-height: 100vh;
-    background-size: auto 100% !important;
-    background-position: top;
-    background-repeat: no-repeat;
-  }
-  .centralHeading {
-    position: fixed;
-    @extend .flexCol;
-    align-items: center;
-    > span {
-      margin-top: 0.4rem;
-    }
-    top: 46%;
-    left: 43%;
-    h1 {
-      > span {
-        font-size: unset;
-      }
-    }
-  }
-  .slider {
-    max-height: 30vh;
-    background-color: red;
-    > div {
-      z-index: 10;
-      cursor: pointer;
-      max-height: 30vh;
-    }
-  }
-}
-
-//This point before
-
-.test {
-  display: flex;
-  min-width: 400vw;
-  // scroll-snap-type: x mandatory;
-  overscroll-behavior: none;
-  flex-wrap: nowrap;
-  height: 100vh;
-  // width: 100%;
-  .slide {
-    height: 100vh;
-    min-width: 100vw;
-  }
-}
-.test {
-  overscroll-behavior: none;
-  width: 600%;
   height: 100%;
-  display: flex;
-  flex-wrap: nowrap;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 }
 
-.mainContainer {
-  display: flex;
-  min-width: 200vw;
-  .maxHeightContainer {
-    height: 100vh;
-    width: 100vw;
-  }
-}
-.maxHeightContainer {
-  min-height: 100vh;
-  max-height: 100vh;
-  // overflow: hidden !important;
-  width: 100vw;
-  max-width: 100vw;
-  overflow: auto;
+.horizontalSlide {
   position: relative;
-}
-.backgroundImage {
-  width: 100vw;
-  // position: absolute;
-  top: 0;
-  flex: 1;
-  left: 0;
-  height: 100vh;
-  min-height: 100vh;
-  max-height: 100vh;
-  img {
-    width: 100vw;
-    height: 100vh;
-  }
-}
-.horizontalSlider {
-  display: flex;
-  min-width: 400vw;
-  // scroll-snap-type: x mandatory;
-  overscroll-behavior: none;
-  flex-wrap: nowrap;
-  height: 100vh;
+  min-width: 100vw;
   overflow: hidden;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  .wrapper {
+    position: relative;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+  }
+  .vertical {
+    position: relative;
+    max-width: 100vw;
+    min-width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }
-.og1 {
-  position: relative;
-  min-height: 100vh;
-}
-.hero {
-  overflow-y: hidden;
+
+.parent {
+  @extend .flexRow;
+  justify-content: center;
+  min-height: 50vh;
+  background-color: red;
+  min-width: 50vw;
+  .child {
+    width: 100px;
+    height: 100px;
+    overflow: auto;
+    background-color: blue;
+  }
 }

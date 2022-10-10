@@ -48,9 +48,6 @@ const socials = [
 
 const Navbar = ({ isFirstTime }) => {
   const navigate = useNavigate();
-  useEffect(() => {
-    console.log({ isFirstTime });
-  });
   return (
     <nav className={styles.container}>
       <div
