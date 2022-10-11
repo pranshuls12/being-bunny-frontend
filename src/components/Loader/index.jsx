@@ -7,15 +7,16 @@ const Loading = ({ time = 1000 }) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
+    handleLoaderWidth();
+  });
+
+  function handleLoaderWidth() {
     if (width < 100) {
       setTimeout(() => {
         setWidth(width + 1);
       }, time / 100);
-      if (width === 99) {
-        setIsLoading(false);
-      }
     }
-  });
+  }
 
   return (
     <div className={styles.container}>

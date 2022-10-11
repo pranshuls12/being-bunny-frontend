@@ -16,6 +16,7 @@ const Home = () => {
   const { isFirstTime, setIsFirstTime, isLoading } = useContext(GlobalContext);
   const containerRef = useRef(null);
   const horizontalSliderRef = useRef(null);
+  const { setIsLoading } = useContext(GlobalContext);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedImage, setSelectedImage] = useState(og1);
   const [currentTranslation, setCurrentTranslation] = useState(150);
@@ -52,7 +53,7 @@ const Home = () => {
       setIsPaused(true);
       setTimeout(() => {
         setIsPaused(false);
-      }, 1000);
+      }, 1500);
     } else if (!isPaused) {
       const newTranslation = currentTranslation + 100;
       console.log(newTranslation);
@@ -63,7 +64,7 @@ const Home = () => {
       setIsPaused(true);
       setTimeout(() => {
         setIsPaused(false);
-      }, 1000);
+      }, 1500);
     }
   }
 
@@ -98,6 +99,33 @@ const Home = () => {
     };
   });
 
+  useEffect(() => {
+    const images = document.querySelectorAll("img");
+    let loadedImages = 0;
+    function countUpLoadedImages() {
+      loadedImages++;
+      if (loadedImages === images.length) {
+        setIsLoading(false);
+      }
+    }
+
+    function setLoadingToFalseAfterImagesLoaded() {
+      images.forEach((image) => {
+        image.addEventListener("load", countUpLoadedImages);
+      });
+    }
+    setLoadingToFalseAfterImagesLoaded();
+    return () => {
+      images.forEach((image) => {
+        image.removeEventListener("load", countUpLoadedImages);
+      });
+    };
+  });
+
+  useEffect(() => {
+    console.log("This should run after everything is loaded");
+  }, []);
+
   return (
     <MainLayout navbar={{ isFirstTime }}>
       <section className={styles.container}>
@@ -119,7 +147,7 @@ const Home = () => {
                       key={index}
                       className={styles.slide}
                     >
-                      <img src={img} alt="OG" />
+                      <img width={"100%"} src={img} alt="OG" />
                     </div>
                   ))}
                 </Slider>
