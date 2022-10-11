@@ -124,7 +124,7 @@ const Home = () => {
         image.removeEventListener("load", countUpLoadedImages);
       });
     };
-  });
+  }, []);
 
   useEffect(() => {
     console.log("This should run after everything is loaded");
