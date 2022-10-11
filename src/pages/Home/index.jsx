@@ -99,14 +99,14 @@ const Home = () => {
   });
 
   useEffect(() => {
-    const images = document.querySelectorAll("img");
+    const images = document.querySelectorAll(".img-load");
     let loadedImages = 0;
     function countUpLoadedImages() {
       loadedImages++;
-      console.log({ loadedImages, length: images.length - 1 });
+      console.log({ loadedImages, length: images.length });
       setLoading((prev) => ({
         ...prev,
-        width: (loadedImages / (images.length - 1)) * 100,
+        width: (loadedImages / images.length) * 100,
       }));
       if (loadedImages === images.length) {
         setLoading((prev) => ({ ...prev, isLoading: false }));
@@ -137,7 +137,11 @@ const Home = () => {
           <section className={clsx(styles.hero, styles.horizontalSlide)}>
             <h1>Hello</h1>
             <div className={styles.backgroundImage}>
-              <img src={heroBackground} alt="heroBackground" />
+              <img
+                className="img-load"
+                src={heroBackground}
+                alt="heroBackground"
+              />
             </div>
           </section>
           <section className={clsx(styles.og, styles.horizontalSlide)}>
@@ -151,24 +155,29 @@ const Home = () => {
                       key={index}
                       className={styles.slide}
                     >
-                      <img width={"100%"} src={img} alt="OG" />
+                      <img
+                        className="img-load"
+                        width={"100%"}
+                        src={img}
+                        alt="OG"
+                      />
                     </div>
                   ))}
                 </Slider>
                 <div className={styles.backgroundImage}>
-                  <img src={selectedImage} alt="OG" />
+                  <img className="img-load" src={selectedImage} alt="OG" />
                 </div>
               </div>
             </div>
           </section>
           <section className={clsx(styles.team, styles.horizontalSlide)}>
             <div className={styles.backgroundImage}>
-              <img src={og2} alt="og2" />
+              <img className="img-load" src={og2} alt="og2" />
             </div>
           </section>
           <section className={clsx(styles.minting, styles.horizontalSlide)}>
             <div className={styles.backgroundImage}>
-              <img src={og3} alt="og3" />
+              <img className="img-load" src={og3} alt="og3" />
             </div>
           </section>
         </div>
