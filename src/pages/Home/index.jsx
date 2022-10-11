@@ -52,7 +52,7 @@ const Home = () => {
       setIsPaused(true);
       setTimeout(() => {
         setIsPaused(false);
-      }, 1500);
+      }, 1000);
     } else if (!isPaused) {
       const newTranslation = currentTranslation + 100;
       console.log(newTranslation);
@@ -63,7 +63,7 @@ const Home = () => {
       setIsPaused(true);
       setTimeout(() => {
         setIsPaused(false);
-      }, 1500);
+      }, 1000);
     }
   }
 
