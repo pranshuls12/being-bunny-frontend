@@ -3,7 +3,10 @@ import { createContext, useState, useEffect } from "react";
 const GlobalContext = createContext({});
 
 export const GlobalContextProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState({
+    isLoading: true,
+    width: 0,
+  });
   const [isFirstTime, setIsFirstTime] = useState(true);
 
   // useEffect(() => {
@@ -16,7 +19,7 @@ export const GlobalContextProvider = ({ children }) => {
 
   return (
     <GlobalContext.Provider
-      value={{ isLoading, setIsLoading, isFirstTime, setIsFirstTime }}
+      value={{ loading, setLoading, isFirstTime, setIsFirstTime }}
     >
       {children}
     </GlobalContext.Provider>

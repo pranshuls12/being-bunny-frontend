@@ -8,13 +8,13 @@ const MainLayout = ({
   navbar = { isFirstTime: false },
   className,
 }) => {
-  const { isLoading } = useContext(GlobalContext);
+  const { loading } = useContext(GlobalContext);
   const { isFirstTime } = navbar;
   return (
     <div className={styles.container}>
       <Navbar isFirstTime={isFirstTime} />
       <main className={className}>{children}</main>
-      {isLoading && <Loader />}
+      {loading?.isLoading && <Loader />}
     </div>
   );
 };

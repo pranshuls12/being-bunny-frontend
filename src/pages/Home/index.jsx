@@ -13,10 +13,9 @@ const { heroBackground, og1, og2, og3, og4 } = images;
 const { mouse, redirect, instagram } = icons;
 
 const Home = () => {
-  const { isFirstTime, setIsFirstTime, isLoading } = useContext(GlobalContext);
+  const { isFirstTime, setIsFirstTime, setLoading } = useContext(GlobalContext);
   const containerRef = useRef(null);
   const horizontalSliderRef = useRef(null);
-  const { setIsLoading } = useContext(GlobalContext);
   const [isPaused, setIsPaused] = useState(false);
   const [selectedImage, setSelectedImage] = useState(og1);
   const [currentTranslation, setCurrentTranslation] = useState(150);
@@ -104,8 +103,13 @@ const Home = () => {
     let loadedImages = 0;
     function countUpLoadedImages() {
       loadedImages++;
+      console.log({ loadedImages, length: images.length - 1 });
+      setLoading((prev) => ({
+        ...prev,
+        width: (loadedImages / (images.length - 1)) * 100,
+      }));
       if (loadedImages === images.length) {
-        setIsLoading(false);
+        setLoading((prev) => ({ ...prev, isLoading: false }));
       }
     }
 
