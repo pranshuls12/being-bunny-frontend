@@ -5,6 +5,8 @@ import og1 from "./images/og1.png";
 import og2 from "./images/og2.png";
 import og3 from "./images/og3.png";
 import og4 from "./images/og4.png";
+import creatives from "./images/creatives.png";
+import roadmap from "./images/roadmap.png";
 
 // icons
 import instagram from "./icons/instagram.svg";
@@ -20,6 +22,8 @@ export const images = {
   og1,
   og2,
   og3,
+  creatives,
+  roadmap,
   og4,
 };
 

@@ -8,6 +8,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../utils/context";
 
+const { instagram, twitter, discord, redirect } = icons;
 const navLinks = [
   {
     name: "Home",
@@ -28,11 +29,30 @@ const navLinks = [
   },
 ];
 
+const socials = [
+  {
+    name: "Instagram",
+    icon: instagram,
+    href: "https://www.youtube.com/",
+  },
+  {
+    name: "Discord",
+    icon: discord,
+    href: "https://www.youtube.com/",
+  },
+  {
+    name: "Twitter",
+    icon: twitter,
+    href: "https://www.youtube.com/",
+  },
+];
+
 const Navbar = ({ isFirstTime }) => {
   const navigate = useNavigate();
   const { slideNo, setSlideNo } = useContext(GlobalContext);
   return (
     <nav className={styles.container}>
+      <div className={styles.backgroundColor}></div>
       <div
         style={
           isFirstTime ? { backdropFilter: "none", background: "unset" } : {}
@@ -61,6 +81,23 @@ const Navbar = ({ isFirstTime }) => {
               >
                 {link.name}
               </p>
+            ))}
+          </div>
+        )}
+        {isFirstTime || (
+          <button className={styles.mintingButton}>
+            Minting <img src={redirect} />
+          </button>
+        )}
+        {isFirstTime || (
+          <div className={styles.social}>
+            {socials.map((social, index) => (
+              <IconButton
+                key={index}
+                icon={social?.icon}
+                href={social?.href}
+                target="blank"
+              />
             ))}
           </div>
         )}

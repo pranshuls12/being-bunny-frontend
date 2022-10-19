@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const { heroBackground, og1, og2, og3, og4 } = images;
+const { heroBackground, og1, og2, og3, og4, creatives, roadmap } = images;
 const { mouse, redirect, instagram } = icons;
 
 const Home = () => {
@@ -146,6 +146,32 @@ const Home = () => {
                   : styles.content
               }
             >
+              {isFirstTime && (
+                <div className={styles.firstTime}>
+                  <h1 onClick={() => setIsFirstTime(false)}>
+                    ENTER THE{" "}
+                    <span className={styles.yellowText}> BUNNY HOUSE</span>
+                  </h1>
+                </div>
+              )}
+            </div>
+
+            <div className={styles.backgroundImage}>
+              <img
+                className="img-load"
+                src={heroBackground}
+                alt="heroBackground"
+              />
+            </div>
+          </section>
+          <section className={clsx(styles.hero, styles.horizontalSlide)}>
+            <div
+              className={
+                isFirstTime
+                  ? clsx(styles.content, styles.firstTime)
+                  : styles.content
+              }
+            >
               {isFirstTime ? (
                 <div className={styles.firstTime}>
                   <h1 onClick={() => setIsFirstTime(false)}>
@@ -166,7 +192,7 @@ const Home = () => {
               />
             </div>
           </section>
-          <section className={clsx(styles.og, styles.horizontalSlide)}>
+          {/* <section className={clsx(styles.og, styles.horizontalSlide)}>
             <div ref={verticalSliderRef} className={styles.wrapper}>
               <div className={clsx(styles.multiple, styles.vertical)}>
                 <Slider {...settings}>
@@ -191,15 +217,15 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
           <section className={clsx(styles.team, styles.horizontalSlide)}>
             <div className={styles.backgroundImage}>
-              <img className="img-load" src={og2} alt="og2" />
+              <img className="img-load" src={roadmap} alt="og2" />
             </div>
           </section>
           <section className={clsx(styles.minting, styles.horizontalSlide)}>
             <div className={styles.backgroundImage}>
-              <img className="img-load" src={og3} alt="og3" />
+              <img className="img-load" src={creatives} alt="og3" />
             </div>
           </section>
         </div>

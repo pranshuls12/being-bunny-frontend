@@ -15,7 +15,7 @@ const MainLayout = ({
       <Navbar isFirstTime={isFirstTime} />
       <main className={className}>{children}</main>
       {loading?.isLoading && <Loader />}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
