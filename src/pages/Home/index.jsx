@@ -13,7 +13,8 @@ const { heroBackground, og1, og2, og3, og4 } = images;
 const { mouse, redirect, instagram } = icons;
 
 const Home = () => {
-  const { isFirstTime, setIsFirstTime, setLoading } = useContext(GlobalContext);
+  const { isFirstTime, setIsFirstTime, setLoading, setSlideNo, slideNo } =
+    useContext(GlobalContext);
   const containerRef = useRef(null);
   const horizontalSliderRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -48,6 +49,7 @@ const Home = () => {
       console.log(newTranslation);
       if (newTranslation < -150) return;
       setCurrentTranslation(newTranslation);
+      setSlideNo(slideNo + 1);
       horizontalSliderRef.current.style.transform = `translate(${newTranslation}vw,0)`;
       setIsPaused(true);
       setTimeout(() => {
@@ -58,6 +60,7 @@ const Home = () => {
       console.log(newTranslation);
       if (newTranslation > 150) return;
       setCurrentTranslation(newTranslation);
+      setSlideNo(slideNo - 1);
 
       horizontalSliderRef.current.style.transform = `translate(${newTranslation}vw,0)`;
       setIsPaused(true);
@@ -68,6 +71,7 @@ const Home = () => {
   }
 
   function handleParentScroll(e) {
+    if (isFirstTime) return;
     scrollHorizontallyWhenVerticalScroll(e);
   }
 
@@ -135,7 +139,25 @@ const Home = () => {
       <section className={styles.container}>
         <div ref={horizontalSliderRef} className={styles.horizontalSlider}>
           <section className={clsx(styles.hero, styles.horizontalSlide)}>
-            <h1>Hello</h1>
+            <div
+              className={
+                isFirstTime
+                  ? clsx(styles.content, styles.firstTime)
+                  : styles.content
+              }
+            >
+              {isFirstTime ? (
+                <div className={styles.firstTime}>
+                  <h1 onClick={() => setIsFirstTime(false)}>
+                    ENTER THE{" "}
+                    <span className={styles.yellowText}> BUNNY HOUSE</span>
+                  </h1>
+                </div>
+              ) : (
+                <div className={styles.rectangle}></div>
+              )}
+            </div>
+
             <div className={styles.backgroundImage}>
               <img
                 className="img-load"

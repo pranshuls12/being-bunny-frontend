@@ -1,5 +1,5 @@
 import styles from "./MainLayout.module.scss";
-import { Loader, Navbar } from "../../components";
+import { Footer, Loader, Navbar } from "../../components";
 import { GlobalContext } from "../../utils/context";
 import { useContext } from "react";
 
@@ -15,6 +15,7 @@ const MainLayout = ({
       <Navbar isFirstTime={isFirstTime} />
       <main className={className}>{children}</main>
       {loading?.isLoading && <Loader />}
+      <Footer />
     </div>
   );
 };

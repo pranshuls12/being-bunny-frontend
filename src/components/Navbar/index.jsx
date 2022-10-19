@@ -4,20 +4,20 @@ import { NavLink } from "react-router-dom";
 import clsx from "clsx";
 import { icons } from "../../assets";
 import { IconButton } from "../";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-const { instagram, twitter, discord } = icons;
+import { GlobalContext } from "../../utils/context";
 
 const navLinks = [
+  {
+    name: "Home",
+    to: "/",
+  },
   {
     name: "OG",
     to: "/og",
   },
-  // {
-  //   name: "Home",
-  //   to: "/",
-  // },
+
   {
     name: "Team",
     to: "/team",
@@ -28,26 +28,9 @@ const navLinks = [
   },
 ];
 
-const socials = [
-  // {
-  //   name: "Instagram",
-  //   icon: instagram,
-  //   href: "https://www.youtube.com/",
-  // },
-  {
-    name: "Discord",
-    icon: discord,
-    href: "https://www.youtube.com/",
-  },
-  {
-    name: "Twitter",
-    icon: twitter,
-    href: "https://www.youtube.com/",
-  },
-];
-
 const Navbar = ({ isFirstTime }) => {
   const navigate = useNavigate();
+  const { slideNo, setSlideNo } = useContext(GlobalContext);
   return (
     <nav className={styles.container}>
       <div
@@ -66,31 +49,18 @@ const Navbar = ({ isFirstTime }) => {
         </div>
         {isFirstTime || (
           <div className={styles.navLinks}>
-            {navLinks.map((link) => (
-              <NavLink
+            {navLinks.map((link, index) => (
+              <p
                 end
-                className={(isActive) => {
-                  console.log(isActive);
-                  return clsx(
-                    styles.navLink,
-                    isActive.isActive ? styles.active : styles.inactive
-                  );
-                }}
+                onClick={() => setSlideNo(index + 1)}
+                className={clsx(
+                  styles.navLink,
+                  index == slideNo - 1 ? styles.active : styles.inactive
+                )}
                 to={link.to}
               >
                 {link.name}
-              </NavLink>
-            ))}
-          </div>
-        )}
-        {isFirstTime || (
-          <div className={styles.social}>
-            {socials.map((social) => (
-              <IconButton
-                icon={social?.icon}
-                href={social?.href}
-                target="blank"
-              />
+              </p>
             ))}
           </div>
         )}

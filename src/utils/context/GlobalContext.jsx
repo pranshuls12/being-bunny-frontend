@@ -7,6 +7,7 @@ export const GlobalContextProvider = ({ children }) => {
     isLoading: true,
     width: 0,
   });
+  const [slideNo, setSlideNo] = useState(1);
   const [isFirstTime, setIsFirstTime] = useState(true);
 
   // useEffect(() => {
@@ -16,10 +17,17 @@ export const GlobalContextProvider = ({ children }) => {
   //     window.localStorage.setItem("isFirstTime", false);
   //   }
   // }, []);
-
+  useEffect(() => console.log({ slideNo }));
   return (
     <GlobalContext.Provider
-      value={{ loading, setLoading, isFirstTime, setIsFirstTime }}
+      value={{
+        loading,
+        setLoading,
+        isFirstTime,
+        setIsFirstTime,
+        slideNo,
+        setSlideNo,
+      }}
     >
       {children}
     </GlobalContext.Provider>
