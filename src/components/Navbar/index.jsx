@@ -83,7 +83,9 @@ const Navbar = ({ isFirstTime }) => {
                 onClick={() => setSlideNoForNavLink(index + 1)}
                 className={clsx(
                   styles.navLink,
-                  index == slideNo - 1 ? styles.active : styles.inactive
+                  index == slideNo - 1 && index !== 3
+                    ? styles.active
+                    : styles.inactive
                 )}
                 to={link.to}
               >
