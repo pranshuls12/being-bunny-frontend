@@ -13,7 +13,6 @@
     min-height: var(--horizontal-slide-height);
     max-height: var(--horizontal-slide-height);
     overflow: hidden;
-    // background-color: pink;
     max-width: var(--horizontal-slider-width);
     width: var(--horizontal-slider-width);
     min-width: var(--horizontal-slider-width);
@@ -121,7 +120,7 @@
 .teamList {
   .content {
     padding: 1rem;
-    background-color: black;
+    // background-color: black;
     @extend .flexRow;
     padding-top: 100px;
     align-items: flex-start;

@@ -11,6 +11,7 @@ import bunny1 from "./images/bunny1.png";
 import bunny2 from "./images/bunny2.png";
 import bunny3 from "./images/bunny3.png";
 import thunder from "./images/thunder.png";
+import team from "./images/team.png";
 
 // icons
 import instagram from "./icons/instagram.svg";
@@ -33,6 +34,7 @@ export const images = {
   bunny2,
   bunny3,
   thunder,
+  team,
 };
 
 export const icons = {

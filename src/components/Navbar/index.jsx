@@ -49,7 +49,9 @@ const socials = [
 
 const Navbar = ({ isFirstTime }) => {
   const navigate = useNavigate();
-  const { slideNo, setSlideNo } = useContext(GlobalContext);
+  const { slideNo, setSlideNo, setSlideNoForNavLink } =
+    useContext(GlobalContext);
+
   return (
     <nav className={styles.container}>
       <div className={styles.backgroundColor}></div>
@@ -72,7 +74,7 @@ const Navbar = ({ isFirstTime }) => {
             {navLinks.map((link, index) => (
               <p
                 end
-                // onClick={() => setSlideNo(index + 1)}
+                onClick={() => setSlideNoForNavLink(index + 1)}
                 className={clsx(
                   styles.navLink,
                   index == slideNo - 1 ? styles.active : styles.inactive
@@ -83,11 +85,6 @@ const Navbar = ({ isFirstTime }) => {
               </p>
             ))}
           </div>
-        )}
-        {isFirstTime || (
-          <button className={styles.mintingButton}>
-            Minting <img src={redirect} />
-          </button>
         )}
         {isFirstTime || (
           <div className={styles.social}>

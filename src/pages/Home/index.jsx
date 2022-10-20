@@ -21,6 +21,7 @@ const {
   bunny2,
   bunny3,
   thunder,
+  team,
 } = images;
 const { mouse, redirect, instagram } = icons;
 
@@ -48,8 +49,14 @@ const members = Array.from({ length: 15 }, (_, index) => {
 // console.log(members);
 
 const Home = () => {
-  const { isFirstTime, setIsFirstTime, setLoading, setSlideNo, slideNo } =
-    useContext(GlobalContext);
+  const {
+    isFirstTime,
+    setIsFirstTime,
+    setLoading,
+    setSlideNo,
+    slideNo,
+    slideNoForNavLink,
+  } = useContext(GlobalContext);
   const containerRef = useRef(null);
   const [sliderEndPoint, setSliderEndPoint] = useState(0);
 
@@ -100,11 +107,18 @@ const Home = () => {
     rectangle.classList.add(styles.rectangleAnimation);
   }
 
-  function scrollHorizontallyWhenVerticalScroll(e) {
+  function scrollHorizontallyWhenVerticalScroll(e, navigationThroughLink) {
+    if (navigationThroughLink && !isFirstTime) {
+      const endPoint = (100 * slideNoForNavLink - 2) / 2;
+      horizontalSliderRef.current.style.transform = `translateX(${endPoint}vw)`;
+      setCurrentTranslation(endPoint);
+      return;
+    }
     e = window.event || e;
     let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
     const speed = 20;
     // console.log(e.deltaY > 0 ? "towards right" : "towards left");
+
     if (e.deltaY > 0 && !isPaused) {
       const newTranslation = currentTranslation - 100;
       // console.log(newTranslation);
@@ -176,6 +190,10 @@ const Home = () => {
       }
     };
   });
+
+  useEffect(() => {
+    scrollHorizontallyWhenVerticalScroll({}, true);
+  }, [slideNoForNavLink]);
 
   useEffect(() => {
     const images = document.querySelectorAll(".img-load");
@@ -346,7 +364,7 @@ const Home = () => {
               </div>
             </div>
             <div className={styles.backgroundImage}>
-              <img className="img-load" src={roadmap} alt="og3" />
+              <img className="img-load" src={team} alt="og3" />
             </div>
           </section>
         </div>

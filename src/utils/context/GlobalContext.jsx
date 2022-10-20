@@ -9,6 +9,7 @@ export const GlobalContextProvider = ({ children }) => {
   });
   const [slideNo, setSlideNo] = useState(1);
   const [isFirstTime, setIsFirstTime] = useState(true);
+  const [slideNoForNavLink, setSlideNoForNavLink] = useState(0);
 
   // useEffect(() => {
   //   if (window.localStorage.getItem("isFirstTime")) {
@@ -27,6 +28,8 @@ export const GlobalContextProvider = ({ children }) => {
         setIsFirstTime,
         slideNo,
         setSlideNo,
+        setSlideNoForNavLink,
+        slideNoForNavLink,
       }}
     >
       {children}
