@@ -350,17 +350,23 @@ const Home = () => {
             )}
           >
             <div className={styles.content}>
-              <h1>
-                OUR <span className={styles.yellowText}>TEAM</span>
-              </h1>
-              <div className={styles.membersList}>
-                {members.map((member, index) => (
-                  <MemberCard
-                    image={member.image}
-                    name={member.name}
-                    designation={member.designation}
-                  />
-                ))}
+              <div className={styles.contentWrapper}>
+                <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                  <h1>
+                    OUR <span className={styles.yellowText}>TEAM</span>
+                  </h1>
+                  <h1 className={styles.yellowText}>>>></h1>
+                </div>
+
+                <div className={styles.membersList}>
+                  {members.map((member, index) => (
+                    <MemberCard
+                      image={member.image}
+                      name={member.name}
+                      designation={member.designation}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
             <div className={styles.backgroundImage}>

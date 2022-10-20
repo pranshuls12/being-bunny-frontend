@@ -27,14 +27,18 @@ const navLinks = [
     name: "Team",
     to: "/team",
   },
+  {
+    name: "Engine Room (coming soon)",
+    to: "/team",
+  },
 ];
 
 const socials = [
-  {
-    name: "Instagram",
-    icon: instagram,
-    href: "https://www.youtube.com/",
-  },
+  // {
+  //   name: "Instagram",
+  //   icon: instagram,
+  //   href: "https://www.youtube.com/",
+  // },
   {
     name: "Discord",
     icon: discord,
@@ -62,7 +66,9 @@ const Navbar = ({ isFirstTime }) => {
         className={styles.maxWidthContainer}
       >
         <div
-          style={{ cursor: "pointer" }}
+          style={{
+            cursor: "pointer",
+          }}
           onClick={() => navigate("/")}
           className={styles.logo}
         >
