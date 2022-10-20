@@ -10,15 +10,14 @@
   overflow: hidden;
   .horizontalSlider {
     @extend .flexRow;
-    min-height: 100vh;
-    max-height: 100vh;
+    min-height: var(--horizontal-slide-height);
+    max-height: var(--horizontal-slide-height);
     overflow: hidden;
     // background-color: pink;
-    max-width: 400vw;
-    width: 400vw;
-    min-width: 400vw;
+    max-width: var(--horizontal-slider-width);
+    width: var(--horizontal-slider-width);
+    min-width: var(--horizontal-slider-width);
     transition: transform 0.7s ease-in-out;
-    transform: translate(150vw, 0);
   }
 }
 .backgroundImage {
@@ -35,25 +34,25 @@
 
 .horizontalSlide {
   position: relative;
-  min-width: 100vw;
+  min-width: var(--horizontal-slide-width);
   overflow: hidden;
-  max-width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  max-width: var(--horizontal-slide-width);
+  height: var(--horizontal-slide-height);
+  max-height: var(--horizontal-slide-height);
   .wrapper {
     position: relative;
-    max-width: 100vw;
-    min-width: 100vw;
-    height: 100vh;
-    max-height: 100vh;
+    max-width: var(--horizontal-slide-width);
+    min-width: var(--horizontal-slide-width);
+    height: var(--horizontal-slide-height);
+    max-height: var(--horizontal-slide-height);
     overflow: auto;
   }
   .vertical {
     position: relative;
-    max-width: 100vw;
-    min-width: 100vw;
-    min-height: 100vh;
-    max-height: 100vh;
+    max-width: var(--horizontal-slide-width);
+    min-width: var(--horizontal-slide-width);
+    min-height: var(--horizontal-slide-height);
+    max-height: var(--horizontal-slide-height);
     overflow: hidden;
   }
   .content {
@@ -68,6 +67,7 @@
   .content {
     @extend .flexRow;
     justify-content: center;
+    align-items: flex-end;
     &.firstTime {
       background-color: rgba(black, 0.3);
     }
@@ -75,10 +75,16 @@
   .rectangle {
     border-radius: 20px;
     width: 80%;
-    min-height: 70vh;
-    background-color: rgba(white, 0.4);
+    min-height: 35vh;
+    background-color: rgba(204, 0, 102, 1);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    transform: translate(100%);
+    margin-bottom: 2rem;
+    &.rectangleAnimation {
+      transition: all 1s ease-in-out;
+      transform: translate(0);
+    }
   }
 }
 
@@ -98,12 +104,60 @@
 
 .firstTime {
   margin: auto;
-
+  width: -moz-fit-content;
   width: fit-content;
+  @extend .flexRow;
   h1 {
     cursor: pointer;
+    font-size: 5rem;
     span {
       font-size: inherit;
     }
+  }
+  img {
+    margin-left: 1rem;
+  }
+}
+.teamList {
+  .content {
+    padding: 1rem;
+    background-color: black;
+    @extend .flexRow;
+    padding-top: 100px;
+    align-items: flex-start;
+    h1 {
+      width: -moz-fit-content;
+      width: fit-content;
+      font-size: 7rem;
+      padding-left: 3rem;
+    }
+  }
+}
+.membersList {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+.memberCard {
+  @extend .flexCol;
+  background-color: var(--clr-primary);
+  .info {
+    width: 100%;
+  }
+  border-radius: 5px;
+  overflow: hidden;
+  p {
+    text-align: center;
+    padding: 0 0.4rem;
+    color: black;
+    font-size: 1.5rem;
+    padding-bottom: 0.4rem;
+  }
+  p:nth-child(2) {
+    font-size: 1.2rem;
+  }
+  img {
+    width: 150px;
   }
 }

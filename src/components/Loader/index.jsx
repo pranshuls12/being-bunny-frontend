@@ -5,9 +5,9 @@ import styles from "./Loader.module.scss";
 const Loading = ({ time = 1000 }) => {
   const { loading, setLoading } = useContext(GlobalContext);
 
-  useEffect(() => {
-    // handleLoaderWidth();
-  });
+  // useEffect(() => {
+  //   // handleLoaderWidth();
+  // });
 
   // function handleLoaderWidth() {
   //   if (loading?.width < 60) {
@@ -17,9 +17,9 @@ const Loading = ({ time = 1000 }) => {
   //   }
   // }
 
-  useEffect(() => {
-    console.log(loading?.width);
-  });
+  // useEffect(() => {
+  //   // console.log(loading?.width);
+  // });
 
   return (
     <div className={styles.container}>
@@ -30,6 +30,7 @@ const Loading = ({ time = 1000 }) => {
             style={{ width: loading?.width + "%", transition: "all 2s" }}
             className={styles.progressBar}
           ></div>
+          <p className={styles.percentage}>{parseInt(loading?.width)}%</p>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ export const GlobalContextProvider = ({ children }) => {
   //     window.localStorage.setItem("isFirstTime", false);
   //   }
   // }, []);
-  useEffect(() => console.log({ slideNo }));
+  // useEffect(() => ({ slideNo }));
   return (
     <GlobalContext.Provider
       value={{

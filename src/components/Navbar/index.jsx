@@ -14,18 +14,18 @@ const navLinks = [
     name: "Home",
     to: "/",
   },
-  {
-    name: "OG",
-    to: "/og",
-  },
+  // {
+  //   name: "OG",
+  //   to: "/og",
+  // },
 
+  {
+    name: "Roadmap",
+    to: "/roadmap",
+  },
   {
     name: "Team",
     to: "/team",
-  },
-  {
-    name: "Minting",
-    to: "/minting",
   },
 ];
 
@@ -72,7 +72,7 @@ const Navbar = ({ isFirstTime }) => {
             {navLinks.map((link, index) => (
               <p
                 end
-                onClick={() => setSlideNo(index + 1)}
+                // onClick={() => setSlideNo(index + 1)}
                 className={clsx(
                   styles.navLink,
                   index == slideNo - 1 ? styles.active : styles.inactive

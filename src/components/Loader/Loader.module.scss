@@ -12,6 +12,7 @@
   justify-content: center;
   h3 {
     font-weight: 500;
+    font-size: 3rem;
   }
   .progressBarContainer {
     width: 100%;
@@ -19,6 +20,7 @@
     height: 50px;
     background-color: rgba(154, 154, 154, 1);
     @extend .flexRow;
+    position: relative;
   }
   .progressBar {
     width: 0%;
@@ -26,5 +28,14 @@
     background-color: var(--clr-primary);
     border-radius: 5px;
     // transition: width 0.5s ease-in-out;
+  }
+  .percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-weight: 500;
+    font-size: 3rem;
   }
 }

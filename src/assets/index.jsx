@@ -7,6 +7,10 @@ import og3 from "./images/og3.png";
 import og4 from "./images/og4.png";
 import creatives from "./images/creatives.png";
 import roadmap from "./images/roadmap.png";
+import bunny1 from "./images/bunny1.png";
+import bunny2 from "./images/bunny2.png";
+import bunny3 from "./images/bunny3.png";
+import thunder from "./images/thunder.png";
 
 // icons
 import instagram from "./icons/instagram.svg";
@@ -25,6 +29,10 @@ export const images = {
   creatives,
   roadmap,
   og4,
+  bunny1,
+  bunny2,
+  bunny3,
+  thunder,
 };
 
 export const icons = {
