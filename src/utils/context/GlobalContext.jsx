@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 
 const GlobalContext = createContext({});
 
@@ -9,8 +9,11 @@ export const GlobalContextProvider = ({ children }) => {
   });
   const [slideNo, setSlideNo] = useState(1);
   const [isFirstTime, setIsFirstTime] = useState(true);
-  const [slideNoForNavLink, setSlideNoForNavLink] = useState(0);
+  // const [slideNoForNavLink, setSlideNoForNavLink] = useState(0);
+  const [translationWiseSlideNo, setTranslationWiseSlideNo] = useState({});
+  const [currentTranslation, setCurrentTranslation] = useState(0);
 
+  const horizontalSliderRef = useRef(null);
   // useEffect(() => {
   //   if (window.localStorage.getItem("isFirstTime")) {
   //     setIsFirstTime(false);
@@ -28,8 +31,11 @@ export const GlobalContextProvider = ({ children }) => {
         setIsFirstTime,
         slideNo,
         setSlideNo,
-        setSlideNoForNavLink,
-        slideNoForNavLink,
+        translationWiseSlideNo,
+        setTranslationWiseSlideNo,
+        currentTranslation,
+        setCurrentTranslation,
+        horizontalSliderRef,
       }}
     >
       {children}

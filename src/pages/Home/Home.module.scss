@@ -19,6 +19,36 @@
     transition: transform 0.7s ease-in-out;
   }
 }
+.scrollButton {
+  position: fixed;
+  top: 48%;
+  right: 2%;
+  z-index: 3;
+  background-color: var(--clr-primary);
+  border: none;
+  width: 50px;
+  @extend .flexRow;
+  cursor: pointer;
+  justify-content: center;
+  height: 50px;
+  text-align: center;
+  color: black;
+  font-size: 3rem;
+  border-radius: 50%;
+  padding: 0.4rem;
+  &.right {
+    &.invisible {
+      visibility: hidden;
+    }
+  }
+  &.left {
+    left: 2%;
+    right: unset;
+    &.invisible {
+      visibility: hidden;
+    }
+  }
+}
 .backgroundImage {
   position: absolute;
   top: 0;
@@ -117,6 +147,10 @@
     &.rectangleAnimation {
       transition: all 1s ease-in-out;
       transform: translate(0);
+    }
+    &.rectangleAnimationRevert {
+      transition: all 1s ease-in-out;
+      transform: translate(100%);
     }
   }
 }

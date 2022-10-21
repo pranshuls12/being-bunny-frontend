@@ -53,9 +53,19 @@ const socials = [
 
 const Navbar = ({ isFirstTime }) => {
   const navigate = useNavigate();
-  const { slideNo, setSlideNo, setSlideNoForNavLink } =
-    useContext(GlobalContext);
-
+  const {
+    slideNo,
+    setSlideNo,
+    translationWiseSlideNo,
+    horizontalSliderRef,
+    setCurrentTranslation,
+  } = useContext(GlobalContext);
+  function handleClick(index) {
+    const newTranslation = translationWiseSlideNo[index];
+    horizontalSliderRef.current.style.transform = `translate(${newTranslation}vw,0)`;
+    setCurrentTranslation(newTranslation);
+    setSlideNo(index + 1);
+  }
   return (
     <nav className={styles.container}>
       <div className={styles.backgroundColor}></div>
@@ -80,7 +90,7 @@ const Navbar = ({ isFirstTime }) => {
             {navLinks.map((link, index) => (
               <p
                 end
-                onClick={() => setSlideNoForNavLink(index + 1)}
+                onClick={() => handleClick(index)}
                 className={clsx(
                   styles.navLink,
                   index == slideNo - 1 && index !== 3

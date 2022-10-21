@@ -1,6 +1,6 @@
 import { MainLayout } from "../../Layouts";
 import styles from "./Home.module.scss";
-import { Logo, Button, IconButton } from "../../components";
+import { Logo, Button } from "../../components";
 import { icons, images } from "../../assets";
 import { useContext, useEffect, Suspense, useRef, useState } from "react";
 import { GlobalContext } from "../../utils/context";
@@ -55,16 +55,18 @@ const Home = () => {
     setLoading,
     setSlideNo,
     slideNo,
-    slideNoForNavLink,
+    setTranslationWiseSlideNo,
+    currentTranslation,
+    setCurrentTranslation,
+    horizontalSliderRef,
   } = useContext(GlobalContext);
   const containerRef = useRef(null);
   const [sliderEndPoint, setSliderEndPoint] = useState(0);
 
-  const horizontalSliderRef = useRef(null);
   const [isPaused, setIsPaused] = useState(false);
   const [isFirstTImeScrolled, setIsFirstTImeScrolled] = useState(true);
+  const [isLastTimeScrolled, setIsLastTimeScrolled] = useState(false);
   const [selectedImage, setSelectedImage] = useState(og1);
-  const [currentTranslation, setCurrentTranslation] = useState(0);
   const verticalSliderRef = useRef(null);
   // useEffect(() => {
   //   console.log({ isFirstTime });
@@ -92,6 +94,14 @@ const Home = () => {
       `${sliderCount * 100}vw`
     );
     const endPoint = (100 * (sliderCount - 1)) / 2;
+
+    const translationWiseSlideNo = Array.from(
+      { length: sliderCount },
+      (_, index) => {
+        return endPoint - 100 * index;
+      }
+    );
+    setTranslationWiseSlideNo(translationWiseSlideNo);
     if (horizontalSliderRef) {
       // console.log("THIS RAN HEHEH");
       // console.log({ endPoint });
@@ -103,17 +113,20 @@ const Home = () => {
 
   function rectangleAnimation() {
     const rectangle = document.querySelector(".rectangle");
-    // console.log("OLA TAM KAALE KAALE u");
+    rectangle.classList.remove(styles.rectangleAnimationRevert);
     rectangle.classList.add(styles.rectangleAnimation);
   }
+  function revertRectangleAnimation() {
+    const rectangle = document.querySelector(".rectangle");
+    rectangle.classList.remove(styles.rectangleAnimation);
+    rectangle.classList.add(styles.rectangleAnimationRevert);
+  }
+
+  useEffect(() => {
+    console.log({ isFirstTImeScrolled, isLastTimeScrolled });
+  });
 
   function scrollHorizontallyWhenVerticalScroll(e, navigationThroughLink) {
-    if (navigationThroughLink && !isFirstTime) {
-      const endPoint = (100 * slideNoForNavLink - 2) / 2;
-      horizontalSliderRef.current.style.transform = `translateX(${endPoint}vw)`;
-      setCurrentTranslation(endPoint);
-      return;
-    }
     e = window.event || e;
     let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
     const speed = 20;
@@ -128,10 +141,12 @@ const Home = () => {
       if (isFirstTImeScrolled) {
         rectangleAnimation();
         setIsPaused(true);
+        console.log("HOLA FIRST TIME");
         setTimeout(() => {
           setIsPaused(false);
         }, 1500);
         setIsFirstTImeScrolled(false);
+        setIsLastTimeScrolled(true);
         return;
       }
 
@@ -147,7 +162,19 @@ const Home = () => {
     } else if (!isPaused) {
       const newTranslation = currentTranslation + 100;
       // console.log(newTranslation);
-      if (newTranslation > sliderEndPoint) return;
+      if (newTranslation > sliderEndPoint && isLastTimeScrolled) {
+        revertRectangleAnimation();
+        setIsPaused(true);
+        setTimeout(() => {
+          setIsPaused(false);
+        }, 1500);
+        setIsLastTimeScrolled(false);
+        setIsFirstTImeScrolled(true);
+        return;
+      }
+      if (newTranslation > sliderEndPoint) {
+        return;
+      }
       setCurrentTranslation(newTranslation);
       setSlideNo(slideNo - 1);
 
@@ -192,10 +219,6 @@ const Home = () => {
   });
 
   useEffect(() => {
-    scrollHorizontallyWhenVerticalScroll({}, true);
-  }, [slideNoForNavLink]);
-
-  useEffect(() => {
     const images = document.querySelectorAll(".img-load");
     let loadedImages = 0;
     function countUpLoadedImages() {
@@ -223,8 +246,42 @@ const Home = () => {
     };
   }, []);
 
+  function handleScrollButton(direction) {
+    if (direction === "right") {
+      const newTranslation = currentTranslation - 100;
+      setCurrentTranslation(newTranslation);
+      setSlideNo(slideNo + 1);
+      horizontalSliderRef.current.style.transform = `translate(${newTranslation}vw,0)`;
+    } else {
+      const newTranslation = currentTranslation + 100;
+      setCurrentTranslation(newTranslation);
+      setSlideNo(slideNo - 1);
+      horizontalSliderRef.current.style.transform = `translate(${newTranslation}vw,0)`;
+    }
+  }
+
   return (
     <MainLayout navbar={{ isFirstTime }}>
+      <button
+        onClick={() => handleScrollButton("left")}
+        className={
+          currentTranslation === sliderEndPoint
+            ? clsx(styles.scrollButton, styles.left, styles.invisible)
+            : clsx(styles.scrollButton, styles.left)
+        }
+      >
+        {"<"}
+      </button>
+      <button
+        onClick={() => handleScrollButton("right")}
+        className={
+          currentTranslation === -sliderEndPoint
+            ? clsx(styles.scrollButton, styles.right, styles.invisible)
+            : clsx(styles.scrollButton, styles.right)
+        }
+      >
+        {">"}
+      </button>
       <section className={styles.container}>
         <div ref={horizontalSliderRef} className={styles.horizontalSlider}>
           {/* <section
@@ -282,7 +339,10 @@ const Home = () => {
                   <img src={thunder} alt="Thunder" />
                 </div>
               ) : (
-                <div className={clsx(styles.rectangle, "rectangle")}></div>
+                <>
+                  <button>Click Me </button>
+                  <div className={clsx(styles.rectangle, "rectangle")}></div>
+                </>
               )}
             </div>
 
