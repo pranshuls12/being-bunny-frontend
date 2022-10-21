@@ -70,6 +70,18 @@
         background-color: var(--clr-primary);
       }
     }
+    &.engineRoom {
+      position: relative;
+      &::after {
+        content: "(coming soon)";
+        position: absolute;
+        color: var(--clr-primary);
+        bottom: -25px;
+        left: 15px;
+        font-size: 1.5rem;
+        // transform: translate(50%, -50%);
+      }
+    }
   }
   .mintingButton {
     padding: 0.7rem 1.5rem;

@@ -61,9 +61,18 @@
   justify-content: center;
   img {
     margin-top: 7rem;
-    width: 83%;
+    width: 70%;
     object-fit: cover;
-    border: 3px solid goldenrod;
+    border: 3px solid var(--clr-primary);
+    @media screen and (max-width: 3000px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 2000px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 1600px) {
+      width: 80%;
+    }
   }
 }
 
@@ -85,11 +94,12 @@
   }
   .content {
     justify-content: center;
+    align-items: center !important;
   }
   .contentWrapper {
     padding: 0.5rem 1rem;
     max-width: fit-content;
-    border: 3px solid goldenrod;
+
     @extend .flexRow;
     align-items: flex-start;
   }
@@ -140,7 +150,9 @@
     width: 80%;
     min-height: 35vh;
     background-color: rgba(204, 0, 102, 1);
+    border: 3px solid var(--clr-primary);
     -webkit-backdrop-filter: blur(5px);
+    padding: 1rem;
     backdrop-filter: blur(5px);
     transform: translate(100%);
     margin-bottom: 2rem;
@@ -151,6 +163,9 @@
     &.rectangleAnimationRevert {
       transition: all 1s ease-in-out;
       transform: translate(100%);
+    }
+    p {
+      font-size: 2rem;
     }
   }
 }
@@ -196,7 +211,8 @@
       width: -moz-fit-content;
       width: fit-content;
       font-size: 7rem;
-      padding-left: 3rem;
+      // padding-left: 3rem;
+      padding-right: 6rem;
       max-width: -moz-fit-content;
       max-width: fit-content;
       &:nth-child(2) {
@@ -211,6 +227,8 @@
   width: 100%;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 0.7rem;
+  border: 3px solid var(--clr-primary);
+  padding: 0.5rem;
 }
 .memberCard {
   @extend .flexCol;

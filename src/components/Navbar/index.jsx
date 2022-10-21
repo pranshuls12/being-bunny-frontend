@@ -28,7 +28,7 @@ const navLinks = [
     to: "/team",
   },
   {
-    name: "Engine Room (coming soon)",
+    name: "Engine Room",
     to: "/team",
   },
 ];
@@ -92,6 +92,7 @@ const Navbar = ({ isFirstTime }) => {
                 end
                 onClick={() => handleClick(index)}
                 className={clsx(
+                  index == 3 && styles.engineRoom,
                   styles.navLink,
                   index == slideNo - 1 && index !== 3
                     ? styles.active

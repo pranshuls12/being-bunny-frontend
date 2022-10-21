@@ -338,14 +338,43 @@ const Home = () => {
                 <div className={styles.firstTime}>
                   <h1 onClick={() => setIsFirstTime(false)}>
                     ENTER THE{" "}
-                    <span className={styles.yellowText}> BUNNY HOUSE</span>
+                    <span sy className={styles.yellowText}>
+                      {" "}
+                      BOROUGH
+                    </span>
                   </h1>
                   <img src={thunder} alt="Thunder" />
                 </div>
               ) : (
                 <>
                   <button>Click Me </button>
-                  <div className={clsx(styles.rectangle, "rectangle")}></div>
+                  <div className={clsx(styles.rectangle, "rectangle")}>
+                    <p>
+                      In the mystical and extraordinary lands of Astoria,
+                      survive and thrive a group of{" "}
+                      <span className={styles.yellowText}>bunnies</span> hungry
+                      for the Elixir of Immortality. No carrots come close to
+                      the{" "}
+                      <span className={styles.yellowText}>delish Elixir.</span>{" "}
+                      The Elixir sends them into a state of absolute and utter
+                      Euphoria, a high so sweet, they crave it day in and out.
+                      <br /> The{" "}
+                      <span className={styles.yellowText}>bunnies</span> fuel
+                      the five Isupods in the
+                      <span className={styles.yellowText}>
+                        {" "}
+                        engine room of the Borough.
+                      </span>{" "}
+                      The very same Isupod that extracts the Elixir from the
+                      dark and dingy pits of Astoria. The
+                      <span className={styles.yellowText}> bunnies</span> are
+                      hungry, five Isupod just won’t cut it. Fret not! There is
+                      a heaploads of Isupods yet to be excavated, each one
+                      amplifying the production of Elixir for the bunnies. There
+                      are rumours that a sixth Isupod has already been excavated
+                      however not much is known about it yet.
+                    </p>
+                  </div>
                 </>
               )}
             </div>
@@ -415,11 +444,17 @@ const Home = () => {
           >
             <div className={styles.content}>
               <div className={styles.contentWrapper}>
-                <div style={{ display: "flex", justifyContent: "flex-start" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                  }}
+                >
                   <h1>
                     OUR <span className={styles.yellowText}>TEAM</span>
                   </h1>
-                  <h1 className={styles.yellowText}>>>></h1>
+                  <h1 className={styles.yellowText}>{">>>"}</h1>
                 </div>
 
                 <div className={styles.membersList}>
