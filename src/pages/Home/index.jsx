@@ -262,26 +262,30 @@ const Home = () => {
 
   return (
     <MainLayout navbar={{ isFirstTime }}>
-      <button
-        onClick={() => handleScrollButton("left")}
-        className={
-          currentTranslation === sliderEndPoint
-            ? clsx(styles.scrollButton, styles.left, styles.invisible)
-            : clsx(styles.scrollButton, styles.left)
-        }
-      >
-        {"<"}
-      </button>
-      <button
-        onClick={() => handleScrollButton("right")}
-        className={
-          currentTranslation === -sliderEndPoint
-            ? clsx(styles.scrollButton, styles.right, styles.invisible)
-            : clsx(styles.scrollButton, styles.right)
-        }
-      >
-        {">"}
-      </button>
+      {isFirstTime || (
+        <button
+          onClick={() => handleScrollButton("left")}
+          className={
+            currentTranslation === sliderEndPoint
+              ? clsx(styles.scrollButton, styles.left, styles.invisible)
+              : clsx(styles.scrollButton, styles.left)
+          }
+        >
+          {"<"}
+        </button>
+      )}
+      {isFirstTime || (
+        <button
+          onClick={() => handleScrollButton("right")}
+          className={
+            currentTranslation === -sliderEndPoint
+              ? clsx(styles.scrollButton, styles.right, styles.invisible)
+              : clsx(styles.scrollButton, styles.right)
+          }
+        >
+          {">"}
+        </button>
+      )}
       <section className={styles.container}>
         <div ref={horizontalSliderRef} className={styles.horizontalSlider}>
           {/* <section
