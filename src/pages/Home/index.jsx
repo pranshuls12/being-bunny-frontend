@@ -400,7 +400,6 @@ const Home = () => {
                 </div>
               ) : (
                 <>
-                  <button>Click Me </button>
                   <div className={clsx(styles.rectangle, "rectangle")}>
                     <p>
                       In the mystical and extraordinary lands of Astoria,
