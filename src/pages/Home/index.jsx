@@ -1,7 +1,7 @@
 import { MainLayout } from "../../Layouts";
 import styles from "./Home.module.scss";
 import { Logo, Button } from "../../components";
-import { icons, images } from "../../assets";
+import { icons, images, memberImages } from "../../assets";
 import { useContext, useEffect, Suspense, useRef, useState } from "react";
 import { GlobalContext } from "../../utils/context";
 import clsx from "clsx";
@@ -17,34 +17,87 @@ const {
   og4,
   creatives,
   roadmap,
-  bunny1,
-  bunny2,
-  bunny3,
   thunder,
   team,
 } = images;
 const { mouse, redirect, instagram } = icons;
 
-function getImageByIndex(index) {
-  switch (index) {
-    case 0:
-      return bunny1;
-    case 1:
-      return bunny2;
-    case 2:
-      return bunny3;
-    default:
-      return bunny1;
-  }
-}
+// const memberss = Array.from({ length: 15 }, (_, index) => {
+//   return {
+//     image: getImageByIndex(index % 3),
+//     name: "Lorem Ipsum",
+//     designation: "Designation",
+//   };
+// });
 
-const members = Array.from({ length: 15 }, (_, index) => {
-  return {
-    image: getImageByIndex(index % 3),
-    name: "Lorem Ipsum",
-    designation: "Designation",
-  };
-});
+const memberNames = [
+  {
+    name: "1HCI",
+    designation: "Operations",
+  },
+  {
+    name: "69thDC",
+    designation: "Co-founder",
+  },
+  {
+    name: "Gimbowski",
+    designation: "Collabs Manager",
+  },
+  {
+    name: "Herren",
+    designation: "Collabs Manager",
+  },
+  {
+    name: "Jake2482",
+    designation: "Community Manager",
+  },
+  {
+    name: "KVS",
+    designation: "UI Developer",
+  },
+  {
+    name: "Mr Wolverine",
+    designation: "Design Manager",
+  },
+  {
+    name: "Mufasa",
+    designation: "Dev (Lead)",
+  },
+  {
+    name: "Salvucci",
+    designation: "Community Manager",
+  },
+  {
+    name: "Sax-x",
+    designation: "Dev",
+  },
+  {
+    name: "Scar",
+    designation: "Product Manager",
+  },
+  {
+    name: "Sir Bertoli",
+    designation: "Collabs Manager",
+  },
+  {
+    name: "dJaiblo",
+    designation: "Co-founder",
+  },
+  {
+    name: "Storybypen",
+    designation: "Artist",
+  },
+  {
+    name: "Tom",
+    designation: "Artist",
+  },
+];
+
+const members = memberImages.map((image, index) => ({
+  image,
+  name: memberNames[index].name,
+  designation: memberNames[index].designation,
+}));
 
 // console.log(members);
 
