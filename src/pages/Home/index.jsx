@@ -327,7 +327,7 @@ const Home = () => {
           {"<"}
         </button>
       )}
-      {isFirstTime || (
+      {isFirstTime || slideNo === 1 || (
         <button
           onClick={() => handleScrollButton("right")}
           className={
@@ -389,6 +389,11 @@ const Home = () => {
             >
               {isFirstTime ? (
                 <div className={styles.firstTime}>
+                  <img
+                    style={{ marginRight: "1rem" }}
+                    src={thunder}
+                    alt="Thunder"
+                  />
                   <h1 onClick={() => setIsFirstTime(false)}>
                     ENTER THE{" "}
                     <span sy className={styles.yellowText}>
