@@ -9,17 +9,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const {
-  heroBackground,
-  og1,
-  og2,
-  og3,
-  og4,
-  creatives,
-  roadmap,
-  thunder,
-  team,
-} = images;
+const { heroBackground, creatives, roadmap, thunder, team } = images;
 const { mouse, redirect, instagram } = icons;
 
 // const memberss = Array.from({ length: 15 }, (_, index) => {
@@ -119,7 +109,6 @@ const Home = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [isFirstTImeScrolled, setIsFirstTImeScrolled] = useState(true);
   const [isLastTimeScrolled, setIsLastTimeScrolled] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(og1);
   const verticalSliderRef = useRef(null);
   // useEffect(() => {
   //   console.log({ isFirstTime });
