@@ -52,21 +52,21 @@ export const images = {
 };
 
 export const memberImages = [
-  _1HCI,
   _FireSkull,
-  _GINBOWSKI,
-  _HERREN,
-  _JAKE2482,
-  _KVS,
-  _MrWOLVERINE,
+  _SkinSKELETON,
+  _1HCI,
   _MUFASA,
-  _SALVUCCI,
   _SAXX,
   _SCAR,
-  _SIRBERTOLI,
-  _SkinSKELETON,
+  _MrWOLVERINE,
   _STORYBYPEN,
   _TOM,
+  _KVS,
+  _JAKE2482,
+  _SALVUCCI,
+  _HERREN,
+  _SIRBERTOLI,
+  _GINBOWSKI,
 ];
 
 export const icons = {

@@ -32,40 +32,20 @@ const { mouse, redirect, instagram } = icons;
 
 const memberNames = [
   {
-    name: "1HCI",
-    designation: "Operations",
-  },
-  {
     name: "69thDC",
     designation: "Co-founder",
   },
   {
-    name: "Gimbowski",
-    designation: "Collabs Manager",
+    name: "dJaiblo",
+    designation: "Co-founder",
   },
   {
-    name: "Herren",
-    designation: "Collabs Manager",
-  },
-  {
-    name: "Jake2482",
-    designation: "Community Manager",
-  },
-  {
-    name: "KVS",
-    designation: "UI Developer",
-  },
-  {
-    name: "Mr Wolverine",
-    designation: "Design Manager",
+    name: "1HCI",
+    designation: "Operations",
   },
   {
     name: "Mufasa",
     designation: "Dev (Lead)",
-  },
-  {
-    name: "Salvucci",
-    designation: "Community Manager",
   },
   {
     name: "Sax-x",
@@ -76,12 +56,8 @@ const memberNames = [
     designation: "Product Manager",
   },
   {
-    name: "Sir Bertoli",
-    designation: "Collabs Manager",
-  },
-  {
-    name: "dJaiblo",
-    designation: "Co-founder",
+    name: "Mr Wolverine",
+    designation: "Design Manager",
   },
   {
     name: "Storybypen",
@@ -90,6 +66,30 @@ const memberNames = [
   {
     name: "Tom",
     designation: "Artist",
+  },
+  {
+    name: "KVS",
+    designation: "UI Developer",
+  },
+  {
+    name: "Jake2482",
+    designation: "Community Manager",
+  },
+  {
+    name: "Salvucci",
+    designation: "Community Manager",
+  },
+  {
+    name: "Herren",
+    designation: "Collabs Manager",
+  },
+  {
+    name: "Sir Bertoli",
+    designation: "Collabs Manager",
+  },
+  {
+    name: "Gimbowski",
+    designation: "Collabs Manager",
   },
 ];
 
