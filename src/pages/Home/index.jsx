@@ -403,29 +403,32 @@ const Home = () => {
                 <>
                   <div className={clsx(styles.rectangle, "rectangle")}>
                     <p>
-                      In the mystical and extraordinary lands of Astoria,
-                      survive and thrive a group of{" "}
-                      <span className={styles.yellowText}>bunnies</span> hungry
+                      In the mystical and extraordinary lands of{" "}
+                      <span style={{ color: "#de105d" }}>Astoria</span>, survive
+                      and thrive a group of{" "}
+                      <span style={{ color: "#b302ff" }}>bunnies</span> hungry
                       for the Elixir of Immortality. No carrots come close to
-                      the{" "}
-                      <span className={styles.yellowText}>delish Elixir.</span>{" "}
-                      The Elixir sends them into a state of absolute and utter
-                      Euphoria, a high so sweet, they crave it day in and out.
-                      <br /> The{" "}
-                      <span className={styles.yellowText}>bunnies</span> fuel
-                      the five Isupods in the
-                      <span className={styles.yellowText}>
-                        {" "}
-                        engine room of the Borough.
+                      the delish Elixir. The Elixir sends them into a state of
+                      absolute and utter{" "}
+                      <span style={{ color: "#0bff03" }}>Euphoria</span>, a high
+                      so sweet, they crave it day in and out.
+                      <br /> The bunnies fuel the five Isupods in the{" "}
+                      <span style={{ color: "#0d00ff" }}>engine room</span> of
+                      the Borough. The very same Isupod that{" "}
+                      <span style={{ color: "#ff0303" }}>extracts</span>
+                      the Elixir from the dark and dingy pits of Astoria. The
+                      bunnies are hungry,{" "}
+                      <span style={{ color: "#03fffb" }}>five</span> Isupod just
+                      won’t cut it. Fret not! There is a heaploads of Isupods{" "}
+                      <span style={{ color: "#ff03bc" }}>yet to be</span>{" "}
+                      excavated, each one{" "}
+                      <span style={{ color: "#0d00ff" }}>amplifying</span> the
+                      production of Elixir for the bunnies. There are rumours
+                      that a sixth Isupod has already been excavated however{" "}
+                      <span style={{ color: "#0bff03" }}>
+                        not much is known
                       </span>{" "}
-                      The very same Isupod that extracts the Elixir from the
-                      dark and dingy pits of Astoria. The
-                      <span className={styles.yellowText}> bunnies</span> are
-                      hungry, five Isupod just won’t cut it. Fret not! There is
-                      a heaploads of Isupods yet to be excavated, each one
-                      amplifying the production of Elixir for the bunnies. There
-                      are rumours that a sixth Isupod has already been excavated
-                      however not much is known about it yet.
+                      about it yet.
                     </p>
                   </div>
                 </>

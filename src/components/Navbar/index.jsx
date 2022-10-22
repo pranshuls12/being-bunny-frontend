@@ -83,7 +83,7 @@ const Navbar = ({ isFirstTime }) => {
           className={styles.logo}
         >
           <Logo />
-          <h3>BEING BUNNY</h3>
+          <h3 style={{ color: "var(--clr-primary)" }}>BEING BUNNY</h3>
         </div>
         {isFirstTime || (
           <div className={styles.navLinks}>
