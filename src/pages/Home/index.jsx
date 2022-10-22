@@ -250,11 +250,13 @@ const Home = () => {
         "mousewheel",
         handleParentScroll
       );
+      horizontalSliderRef.current.addEventListener("wheel", handleParentScroll);
     } else {
       horizontalSliderRef.current.attachEvent(
         "onmousewheel",
         handleParentScroll
       );
+      horizontalSliderRef.current.attachEvent("wheel", handleParentScroll);
     }
     return () => {
       if (horizontalSliderRef) {
@@ -262,11 +264,16 @@ const Home = () => {
           "mousewheel",
           handleParentScroll
         );
+        horizontalSliderRef.current.removeEventListener(
+          "wheel",
+          handleParentScroll
+        );
       } else {
         horizontalSliderRef.current.detachEvent(
           "onmousewheel",
           handleParentScroll
         );
+        horizontalSliderRef.current.detachEvent("wheel", handleParentScroll);
       }
     };
   });
