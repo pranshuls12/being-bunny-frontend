@@ -65,10 +65,10 @@
     object-fit: cover;
     border: 3px solid var(--clr-primary);
     @media screen and (max-width: 3000px) {
-      width: 90%;
+      width: 80%;
     }
     @media screen and (max-width: 2000px) {
-      width: 90%;
+      width: 80%;
     }
     @media screen and (max-width: 1600px) {
       width: 80%;
@@ -98,6 +98,7 @@
   }
   .contentWrapper {
     padding: 0.5rem 1rem;
+    max-width: -moz-fit-content;
     max-width: fit-content;
 
     @extend .flexRow;
@@ -148,7 +149,7 @@
   .rectangle {
     border-radius: 20px;
     width: 80%;
-    min-height: 35vh;
+    // min-height: 35vh;
     background-color: rgba(204, 0, 102, 1);
     border: 3px solid var(--clr-primary);
     -webkit-backdrop-filter: blur(5px);
@@ -165,7 +166,7 @@
       transform: translate(110%);
     }
     p {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     background-image: url("../../assets/images/team.png");
     background-size: cover;
