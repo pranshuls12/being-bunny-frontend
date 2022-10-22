@@ -42,12 +42,12 @@ const socials = [
   {
     name: "Discord",
     icon: discord,
-    href: "https://www.youtube.com/",
+    href: "https://discord.gg/SbSm92ZMEr",
   },
   {
     name: "Twitter",
     icon: twitter,
-    href: "https://www.youtube.com/",
+    href: "https://twitter.com/Being_BunnyNFT",
   },
 ];
 
@@ -90,7 +90,7 @@ const Navbar = ({ isFirstTime }) => {
             {navLinks.map((link, index) => (
               <p
                 end
-                onClick={() => handleClick(index)}
+                onClick={index == 3 ? () => {} : () => handleClick(index)}
                 className={clsx(
                   index == 3 && styles.engineRoom,
                   styles.navLink,
