@@ -95,7 +95,7 @@
   }
   .social {
     @extend .flexRow;
-    margin: auto;
+    margin-left: auto;
     button {
       margin: 0 1rem;
       font-size: 1.55rem;

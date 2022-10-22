@@ -79,7 +79,7 @@ const Navbar = ({ isFirstTime }) => {
           style={{
             cursor: "pointer",
           }}
-          onClick={() => navigate("/")}
+          onClick={() => handleClick(0)}
           className={styles.logo}
         >
           <Logo />
@@ -98,7 +98,6 @@ const Navbar = ({ isFirstTime }) => {
                     ? styles.active
                     : styles.inactive
                 )}
-                to={link.to}
               >
                 {link.name}
               </p>
