@@ -105,6 +105,11 @@ const Navbar = ({ isFirstTime }) => {
           </div>
         )}
         {isFirstTime || (
+          <a href="https://mint.beingbunny.io/" target="blank">
+            <button className={styles.mintingButton}>Mint</button>
+          </a>
+        )}
+        {isFirstTime || (
           <div className={styles.social}>
             {socials.map((social, index) => (
               <IconButton
