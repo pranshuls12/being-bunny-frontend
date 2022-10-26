@@ -26,7 +26,7 @@ const memberNames = [
     designation: "Co-founder",
   },
   {
-    name: "dJaiblo",
+    name: "dJiablo",
     designation: "Co-founder",
   },
   {
