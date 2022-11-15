@@ -8,6 +8,7 @@ import roadmap from "./images/roadmap.png";
 // import bunny3 from "./images/bunny3.png";
 import thunder from "./images/thunder.png";
 import team from "./images/team.png";
+import builtWithThreeway from "./images/builtWithThreeway.png";
 
 //Team Members
 import _1HCI from "./images/1HCI.png";
@@ -38,6 +39,7 @@ export const images = {
   logo,
   heroBackground,
   creatives,
+  builtWithThreeway,
   roadmap,
   thunder,
   team, //Team Members

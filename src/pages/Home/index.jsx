@@ -9,7 +9,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const { heroBackground, creatives, roadmap, thunder, team } = images;
+const { heroBackground, creatives, roadmap, thunder, team, builtWithThreeway } =
+  images;
 const { mouse, redirect, instagram } = icons;
 
 // const memberss = Array.from({ length: 15 }, (_, index) => {
@@ -386,6 +387,7 @@ const Home = () => {
               {isFirstTime ? (
                 <div className={styles.firstTime}>
                   <img
+                    draggable={false}
                     style={{ marginRight: "1rem" }}
                     src={thunder}
                     alt="Thunder"
@@ -397,7 +399,25 @@ const Home = () => {
                       BOROUGH
                     </span>
                   </h1>
-                  <img src={thunder} alt="Thunder" />
+                  <img draggable={false} src={thunder} alt="Thunder" />
+                  <a
+                    style={{
+                      width: "300px",
+                      position: "absolute",
+                      bottom: "2%",
+                      right: "5%",
+                      // transform: "translateX(-50%)",
+                    }}
+                    target="blank"
+                    href="https://www.threeway.studio"
+                  >
+                    <img
+                      width="100%"
+                      draggable={false}
+                      src={builtWithThreeway}
+                      alt="Built With Threeway"
+                    />
+                  </a>
                 </div>
               ) : (
                 <>
