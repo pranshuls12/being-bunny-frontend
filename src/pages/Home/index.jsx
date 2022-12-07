@@ -5,6 +5,7 @@ import { icons, images, memberImages } from "../../assets";
 import { useContext, useEffect, Suspense, useRef, useState } from "react";
 import { GlobalContext } from "../../utils/context";
 import clsx from "clsx";
+import { NotFound } from "..";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -106,7 +107,7 @@ const Home = () => {
   } = useContext(GlobalContext);
   const containerRef = useRef(null);
   const [sliderEndPoint, setSliderEndPoint] = useState(0);
-
+  const notFound = true;
   const [isPaused, setIsPaused] = useState(false);
   const [isFirstTImeScrolled, setIsFirstTImeScrolled] = useState(true);
   const [isLastTimeScrolled, setIsLastTimeScrolled] = useState(false);
@@ -309,7 +310,6 @@ const Home = () => {
       horizontalSliderRef.current.style.transform = `translate(${newTranslation}vw,0)`;
     }
   }
-
   return (
     <MainLayout navbar={{ isFirstTime }}>
       {isFirstTime || (
