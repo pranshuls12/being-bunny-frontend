@@ -105,7 +105,7 @@ const Navbar = ({ isFirstTime }) => {
           </div>
         )}
         {isFirstTime || (
-          <a href="https://mint.beingbunny.io/" target="blank">
+          <a href="https://being-bunny-nft-mint.netlify.app/" target="blank">
             <button className={styles.mintingButton}>Mint</button>
           </a>
         )}

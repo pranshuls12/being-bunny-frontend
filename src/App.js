@@ -10,7 +10,7 @@ function App() {
       <GlobalContextProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<NotFound />} />
+            <Route path="/" element={<Home />} />
             <Route path="/og" element={<OG />} />
             <Route path="/team" element={<Team />} />
             <Route path="/minting" element={<Minting />} />
